@@ -10,6 +10,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -32,18 +33,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     Sobre tela3 = new Sobre();
     Home tela4 = new Home();
     GerenciarAlunos tela2 = new GerenciarAlunos();
+    private static TelaPrincipal telaPrincipalCu = new TelaPrincipal();
     private boolean darkThemeEnabled;
     private boolean icon = true;
     private final ControllerGerenciarAlunos controller;
     private final ControllerRegistrosAmigos controller2;
-    private final ControllerRegistrosFuncionarios controller3;
     private boolean mudarCor = false;
 
     public TelaPrincipal() {
         initComponents();
+        
+        InserirIcone(this);
         controller = new ControllerGerenciarAlunos(this);
         controller2 = new ControllerRegistrosAmigos(this);
-        controller3 = new ControllerRegistrosFuncionarios(this);
 
     }
 
@@ -1168,8 +1170,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void f_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_cadastrarActionPerformed
 
-        controller3.registrarFuncionario();
-        // TODO add your handling code here:
+        ConfirmacaoSeguranca confirmacaoseguranca = new ConfirmacaoSeguranca();
+        confirmacaoseguranca.setVisible(true);
+        
     }//GEN-LAST:event_f_cadastrarActionPerformed
 
     private void opcaoCadastroFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcaoCadastroFActionPerformed
@@ -1217,7 +1220,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPrincipal().setVisible(true);
+                telaPrincipalCu.setVisible(true);
             }
         });
 
@@ -1346,6 +1349,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.f_salario = f_salario;
     }
 
+    public static TelaPrincipal getTelaPrincipal() {
+        return telaPrincipalCu;
+        
+    }
+
+    
+    
+
     public void limparCamps() {
 
         this.c_nome.setText("");
@@ -1362,6 +1373,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.f_matricula.setText("");
         this.f_salario.setText("");
 
+    }
+    
+    public void InserirIcone(JFrame frm) {
+        try {
+            
+            frm.setIconImage(Toolkit.getDefaultToolkit().getImage("src/imagens/cupp.png"));
+            
+        } catch (Exception ex){
+            System.out.println(ex.toString());
+        }
+        
     }
 
 
