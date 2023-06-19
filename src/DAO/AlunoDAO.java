@@ -45,6 +45,7 @@ public class AlunoDAO {
         return maiorID;
     }
 
+    
     public static ArrayList<Aluno> MinhaLista = new ArrayList<Aluno>();
 
     public ArrayList getMinhaLista() {
@@ -73,6 +74,7 @@ public class AlunoDAO {
 
         return MinhaLista;
     }
+    
 
     public void insertBD(Aluno aluno) throws SQLException {
 

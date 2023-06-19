@@ -106,7 +106,8 @@ public class Aluno {
                 + "\n Idade:" + this.getIdade()
                 + "\n -----------";
     }
-
+    
+    /*
     public ArrayList getMinhaLista() {
         return AlunoDAO.MinhaLista;
     }
@@ -127,7 +128,7 @@ public class Aluno {
         
         return dao.maiorID(); // Versão para BD
     }
-
+    */
     
     
 }
