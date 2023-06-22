@@ -25,6 +25,7 @@ public class ControllerGerenciarAlunos {
     private TelaPrincipal view;
     private AlunoDAO objaluno;
     private Aluno osalunos;
+    
 
     public ControllerGerenciarAlunos(TelaPrincipal view) {
         this.view = view;
@@ -54,12 +55,14 @@ public class ControllerGerenciarAlunos {
                 if (this.objaluno.DeleteAlunoBD(id)) {
 
                     // limpa os campos
+                    
                     this.view.getG_nome().setText("");
                     this.view.getG_idade().setText("");
                     this.view.getG_curso().setText("");
                     this.view.getG_fase().setText("");
+                    view.limparCampsG();
                     JOptionPane.showMessageDialog(null, "Aluno Apagado com Sucesso!");
-
+                    
                 }
 
             }

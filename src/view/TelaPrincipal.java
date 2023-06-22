@@ -33,12 +33,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     Sobre tela3 = new Sobre();
     Home tela4 = new Home();
     GerenciarAlunos tela2 = new GerenciarAlunos();
-    private static TelaPrincipal telaPrincipalCu = new TelaPrincipal();
     private boolean darkThemeEnabled;
-    private boolean icon = true;
     private final ControllerGerenciarAlunos controller;
     private final ControllerRegistrosAmigos controller2;
-    private boolean mudarCor = false;
+    private final ControllerRegistrosFuncionarios controller3;
+    private final static TelaPrincipal telaprincipalinit = new TelaPrincipal();
 
     public TelaPrincipal() {
         initComponents();
@@ -46,6 +45,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         InserirIcone(this);
         controller = new ControllerGerenciarAlunos(this);
         controller2 = new ControllerRegistrosAmigos(this);
+        controller3 = new ControllerRegistrosFuncionarios(this);
 
     }
 
@@ -64,7 +64,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         cadastrarPanel = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -116,8 +115,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         t_min = new javax.swing.JLabel();
         t_close = new javax.swing.JLabel();
         Lista = new javax.swing.JPanel();
-        opcaoCadastro = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
         t_home = new javax.swing.JButton();
+        opcaoCadastro = new javax.swing.JButton();
         opcaoCadastroF = new javax.swing.JButton();
         t_mudarcor = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
@@ -142,14 +142,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         telaPrincipal.setLayout(new java.awt.CardLayout());
 
-        homePanel.setBackground(new java.awt.Color(255, 145, 77));
-        homePanel.setForeground(new java.awt.Color(255, 145, 77));
+        homePanel.setBackground(new java.awt.Color(35, 35, 35));
+        homePanel.setForeground(new java.awt.Color(35, 35, 35));
 
-        jPanel2.setBackground(new java.awt.Color(255, 145, 77));
-        jPanel2.setForeground(new java.awt.Color(255, 145, 77));
+        jPanel2.setBackground(new java.awt.Color(156, 91, 52));
+        jPanel2.setForeground(new java.awt.Color(156, 91, 52));
         jPanel2.setPreferredSize(new java.awt.Dimension(766, 116));
 
-        jLabel1.setBackground(new java.awt.Color(236, 240, 241));
+        jLabel1.setBackground(new java.awt.Color(212, 212, 210));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(236, 240, 241));
         jLabel1.setText("SEJA BEM VINDO(a)!");
@@ -161,69 +161,65 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(133, 133, 133))
+                .addGap(199, 199, 199))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+                .addContainerGap(61, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap())
+                .addGap(42, 42, 42))
         );
 
-        jPanel9.setBackground(new java.awt.Color(44, 62, 80));
-        jPanel9.setForeground(new java.awt.Color(44, 62, 80));
+        jPanel9.setBackground(new java.awt.Color(35, 35, 35));
+        jPanel9.setForeground(new java.awt.Color(35, 35, 35));
         jPanel9.setPreferredSize(new java.awt.Dimension(635, 560));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cupp.png"))); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(98, 98, 98)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
                 .addComponent(jLabel14)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGap(35, 35, 35))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
                 .addComponent(jLabel14)
-                .addGap(41, 41, 41))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
         homePanel.setLayout(homePanelLayout);
         homePanelLayout.setHorizontalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 815, Short.MAX_VALUE)
+                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 935, Short.MAX_VALUE)
                 .addContainerGap())
         );
         homePanelLayout.setVerticalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homePanelLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         telaPrincipal.add(homePanel, "card4");
 
-        cadastrarPanel.setBackground(new java.awt.Color(255, 145, 77));
+        cadastrarPanel.setBackground(new java.awt.Color(35, 35, 35));
         cadastrarPanel.setForeground(new java.awt.Color(255, 145, 77));
 
-        jPanel7.setBackground(new java.awt.Color(255, 145, 77));
-        jPanel7.setForeground(new java.awt.Color(255, 145, 77));
-        jPanel7.setMinimumSize(new java.awt.Dimension(100, 100));
-        jPanel7.setPreferredSize(new java.awt.Dimension(766, 499));
-
-        jPanel8.setBackground(new java.awt.Color(255, 145, 77));
+        jPanel8.setBackground(new java.awt.Color(156, 91, 52));
+        jPanel8.setForeground(new java.awt.Color(156, 91, 52));
 
         jLabel8.setBackground(new java.awt.Color(236, 240, 241));
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
@@ -236,21 +232,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(160, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8)
-                .addGap(114, 114, 114))
+                .addGap(190, 190, 190))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(65, Short.MAX_VALUE)
                 .addComponent(jLabel8)
-                .addGap(20, 20, 20))
+                .addGap(38, 38, 38))
         );
 
-        jPanel6.setBackground(new java.awt.Color(44, 62, 80));
-        jPanel6.setForeground(new java.awt.Color(44, 62, 80));
-        jPanel6.setPreferredSize(new java.awt.Dimension(635, 560));
+        jPanel6.setBackground(new java.awt.Color(35, 35, 35));
+        jPanel6.setForeground(new java.awt.Color(35, 35, 35));
+        jPanel6.setPreferredSize(new java.awt.Dimension(635, 570));
+        jPanel6.setVerifyInputWhenFocusTarget(false);
 
         jLabel4.setBackground(new java.awt.Color(236, 240, 241));
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 34)); // NOI18N
@@ -301,7 +298,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(104, 104, 104)
                 .addComponent(c_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 480, Short.MAX_VALUE)
                 .addComponent(c_conexao)
                 .addGap(82, 82, 82))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
@@ -320,12 +317,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addComponent(c_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(c_idade, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(2, 2, 2)))
-                .addGap(158, 158, 158))
+                .addGap(232, 232, 232))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap(114, Short.MAX_VALUE)
+                .addGap(138, 138, 138)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(c_curso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -341,49 +338,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(c_idade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(95, 95, 95)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(c_conexao)
                     .addComponent(c_cancelar))
                 .addGap(84, 84, 84))
         );
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 815, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
         javax.swing.GroupLayout cadastrarPanelLayout = new javax.swing.GroupLayout(cadastrarPanel);
         cadastrarPanel.setLayout(cadastrarPanelLayout);
         cadastrarPanelLayout.setHorizontalGroup(
             cadastrarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(cadastrarPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 941, Short.MAX_VALUE)
+                .addGap(6, 6, 6))
         );
         cadastrarPanelLayout.setVerticalGroup(
             cadastrarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 701, Short.MAX_VALUE)
+            .addGroup(cadastrarPanelLayout.createSequentialGroup()
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+                .addGap(6, 6, 6))
         );
 
         telaPrincipal.add(cadastrarPanel, "card7");
 
-        cadastrarFuPanel.setBackground(new java.awt.Color(255, 145, 77));
-        cadastrarFuPanel.setPreferredSize(new java.awt.Dimension(839, 701));
+        cadastrarFuPanel.setBackground(new java.awt.Color(35, 35, 35));
+        cadastrarFuPanel.setForeground(new java.awt.Color(35, 35, 35));
+        cadastrarFuPanel.setPreferredSize(new java.awt.Dimension(865, 703));
 
-        jPanel11.setBackground(new java.awt.Color(255, 145, 77));
+        jPanel11.setBackground(new java.awt.Color(156, 91, 52));
+        jPanel11.setForeground(new java.awt.Color(156, 91, 52));
 
         jLabel21.setBackground(new java.awt.Color(236, 240, 241));
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
@@ -396,19 +384,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addContainerGap(113, Short.MAX_VALUE)
                 .addComponent(jLabel21)
-                .addGap(27, 27, 27))
+                .addGap(93, 93, 93))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+                .addContainerGap(65, Short.MAX_VALUE)
                 .addComponent(jLabel21)
-                .addContainerGap())
+                .addGap(38, 38, 38))
         );
 
-        jPanel10.setBackground(new java.awt.Color(44, 62, 80));
+        jPanel10.setBackground(new java.awt.Color(35, 35, 35));
 
         jLabel17.setBackground(new java.awt.Color(236, 240, 241));
         jLabel17.setFont(new java.awt.Font("Dialog", 0, 34)); // NOI18N
@@ -469,27 +457,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(f_cadastrar)
                 .addGap(82, 82, 82))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap(145, Short.MAX_VALUE)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(f_nomee, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel18))
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(f_matricula, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(f_funcao, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(f_salario, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(2, 2, 2)))
-                .addGap(158, 158, 158))
+                .addContainerGap(220, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18))
+                .addGap(39, 39, 39)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(f_matricula, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f_funcao, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f_salario, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(f_nomee, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap(109, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
                     .addComponent(f_nomee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -505,7 +490,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(f_salario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(95, 95, 95)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(f_cadastrar)
                     .addComponent(f_apagar))
@@ -521,28 +506,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(cadastrarFuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(cadastrarFuPanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cadastrarFuPanelLayout.setVerticalGroup(
             cadastrarFuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cadastrarFuPanelLayout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastrarFuPanelLayout.createSequentialGroup()
+                .addContainerGap(272, Short.MAX_VALUE)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(cadastrarFuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(cadastrarFuPanelLayout.createSequentialGroup()
                     .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 589, Short.MAX_VALUE)))
+                    .addGap(0, 644, Short.MAX_VALUE)))
         );
 
         telaPrincipal.add(cadastrarFuPanel, "card8");
 
-        jPanel4.setBackground(new java.awt.Color(255, 145, 77));
+        jPanel4.setBackground(new java.awt.Color(35, 35, 35));
 
-        jPanel5.setBackground(new java.awt.Color(44, 62, 80));
+        jPanel5.setBackground(new java.awt.Color(35, 35, 35));
 
         jLabel9.setBackground(new java.awt.Color(236, 240, 241));
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 34)); // NOI18N
@@ -591,13 +573,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(73, 73, 73)
+                .addGap(103, 103, 103)
                 .addComponent(g_apagar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(g_alterar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(101, 101, 101))
+                .addGap(93, 93, 93))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 188, Short.MAX_VALUE)
+                .addContainerGap(236, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11)
@@ -610,12 +592,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addComponent(g_fase, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(g_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(g_curso, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(159, 159, 159))
+                .addGap(231, 231, 231))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
+                .addGap(89, 89, 89)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(g_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -631,14 +613,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(g_idade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addGap(62, 62, 62)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(g_alterar)
-                    .addComponent(g_apagar))
-                .addGap(35, 35, 35))
+                    .addComponent(g_apagar)
+                    .addComponent(g_alterar))
+                .addGap(71, 71, 71))
         );
 
-        jPanel1.setBackground(new java.awt.Color(255, 145, 77));
+        jPanel1.setBackground(new java.awt.Color(156, 91, 52));
         jPanel1.setForeground(new java.awt.Color(255, 145, 77));
 
         g_tabela.setModel(new javax.swing.table.DefaultTableModel(
@@ -684,7 +666,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -719,20 +702,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         telaPrincipal.add(gerenciarPanel, "card6");
 
-        sobrePanel.setBackground(new java.awt.Color(255, 145, 77));
+        sobrePanel.setBackground(new java.awt.Color(35, 35, 35));
         sobrePanel.setForeground(new java.awt.Color(255, 145, 77));
 
         jScrollPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane2.setFont(new java.awt.Font("Dialog", 0, 8)); // NOI18N
 
-        jTextArea1.setBackground(new java.awt.Color(44, 62, 80));
+        jTextArea1.setBackground(new java.awt.Color(35, 35, 35));
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText(" \n  A Fallen Store, criada em 2015 por Gabriel \"FalleN\" Toledo, um dos jogadores mais importantes de Counter-Strike: \n  Global Offensive no mundo, traz o compromisso de oferecer produtos de alta qualidade, aos nossos clientes e fãs \n  do mundo dos esportes eletrônicos.\n\n  Sempre com o objetivo de contribuir para o crescimento do cenário brasileiro de esports, a Fallen Store faz parcerias \n  com grandes marcas do mercado para disponibilizar produtos profissionais e especialmente desenvolvidos para atingir \n  alta performance, dando a oportunidade de mais jogadores treinarem profissionalmente em alto nível.\n\n  Estrutura Física\n  Nosso início em 2015 foi bem simples, assim como o sonho do FalleN de ser campeão mundial. A loja começou na \n  residência do próprio Verdadeiro e foi ao lado da força de vontade que os primeiros produtos começaram a ser \n  comercializados.\n\n  Em 2017 nos mudamos para um escritório de apenas 125m², um local relativamente ainda pequeno, mas que \n  proporcionou armazenar e organizar melhor nossos produtos, que começavam a chegar em maior volume.\n\n  Agora em 2018, nos mudamos para um galpão amplo de 450m², onde temos toda equipe que trabalha no escritório \n  da Fallen Store e há espaço suficiente para o estoque de toda nossa linha de produtos.");
+        jTextArea1.setText("  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget arcu dictum \n  varius duis at consectetur lorem donec. Nibh venenatis cras sed felis eget velit aliquet sagittis. Id volutpat lacus laoreet non. Lacinia at quis risus \n  sed vulputate odio ut enim. Dapibus ultrices in iaculis nunc sed augue lacus viverra. Fusce ut placerat orci nulla pellentesque dignissim. Felis \n  eget velit aliquet sagittis id consectetur purus ut faucibus. Quam id leo in vitae turpis massa sed. Dolor purus non enim praesent. Quam adipiscing\n  vitae proin sagittis nisl. Vitae et leo duis ut.  Proin libero nunc consequat interdum varius. Duis tristique sollicitudin nibh sit amet commodo nulla \n  facilisi. Eu sem integer vitae justo eget magna fermentum iaculis. Pellentesque elit eget gravida cum sociis natoque penatibus et magnis. Et tortor\n  at risus viverra. Gravida rutrum quisque non tellus. Iaculis urna id volutpat lacus laoreet non. Ultrices sagittis orci a scelerisque purus semper. \n  \n  Facilisis mauris sit amet massa. Id venenatis a condimentum vitae sapien pellentesque. Quisque sagittis purus sit amet volutpat consequat mauris \n  nunc congue. Sapien nec sagittis aliquam malesuada. Blandit libero volutpat sed cras ornare arcu dui. Consequat interdum varius sit amet mattis \n  vulputate. Vel risus commodo viverra maecenas. Viverra maecenas accumsan lacus vel facilisis volutpat est. Nulla aliquet porttitor lacus luctus \n  accumsan tortor posuere ac.");
         jScrollPane2.setViewportView(jTextArea1);
 
-        jPanel3.setBackground(new java.awt.Color(255, 145, 77));
+        jPanel3.setBackground(new java.awt.Color(156, 91, 52));
         jPanel3.setForeground(new java.awt.Color(255, 145, 77));
 
         jLabel3.setBackground(new java.awt.Color(236, 240, 241));
@@ -745,35 +728,35 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(105, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(90, 90, 90))
+                .addGap(153, 153, 153))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addContainerGap())
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout sobrePanelLayout = new javax.swing.GroupLayout(sobrePanel);
         sobrePanel.setLayout(sobrePanelLayout);
         sobrePanelLayout.setHorizontalGroup(
             sobrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sobrePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 935, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         sobrePanelLayout.setVerticalGroup(
             sobrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sobrePanelLayout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
+                .addGap(6, 6, 6))
         );
 
         telaPrincipal.add(sobrePanel, "card5");
@@ -802,15 +785,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         telaPrincipal.add(t_close, "card2");
 
-        Lista.setBackground(new java.awt.Color(44, 62, 80));
-        Lista.setForeground(new java.awt.Color(44, 62, 80));
+        Lista.setBackground(new java.awt.Color(35, 35, 35));
+        Lista.setForeground(new java.awt.Color(35, 35, 35));
 
-        opcaoCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Design_sem_nome__4_-removebg-preview.png"))); // NOI18N
-        opcaoCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opcaoCadastroActionPerformed(evt);
-            }
-        });
+        jPanel7.setBackground(new java.awt.Color(156, 91, 52));
+        jPanel7.setForeground(new java.awt.Color(156, 91, 52));
 
         t_home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Design_sem_nome__1_-removebg-preview.png"))); // NOI18N
         t_home.addActionListener(new java.awt.event.ActionListener() {
@@ -819,9 +798,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(t_home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(t_home, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        opcaoCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Design_sem_nome__4_-removebg-preview.png"))); // NOI18N
+        opcaoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcaoCadastroActionPerformed(evt);
+            }
+        });
+
         opcaoCadastroF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/maisprof-removebg-preview.png"))); // NOI18N
-        opcaoCadastroF.setMaximumSize(new java.awt.Dimension(149, 104));
-        opcaoCadastroF.setMinimumSize(new java.awt.Dimension(149, 104));
         opcaoCadastroF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 opcaoCadastroFActionPerformed(evt);
@@ -870,38 +870,39 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ListaLayout.setHorizontalGroup(
             ListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ListaLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(ListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(opcaoCadastroF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(t_mudarcor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(t_home, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                    .addComponent(opcaoCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(opcaoSobre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(ListaLayout.createSequentialGroup()
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(opcaoGerenciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addContainerGap()
+                        .addGroup(ListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(opcaoCadastroF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                            .addComponent(t_mudarcor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(opcaoCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(opcaoSobre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(opcaoGerenciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(ListaLayout.createSequentialGroup()
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
         ListaLayout.setVerticalGroup(
             ListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ListaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(t_home)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(opcaoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(opcaoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(opcaoCadastroF, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(opcaoCadastroF, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(opcaoGerenciar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(opcaoGerenciar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addComponent(opcaoSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(ListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(opcaoSobre, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(ListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(t_mudarcor)
                 .addContainerGap())
@@ -914,12 +915,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Lista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(telaPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(telaPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(telaPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(telaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(Lista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -1220,7 +1220,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                telaPrincipalCu.setVisible(true);
+                telaprincipalinit.setVisible(true);
             }
         });
 
@@ -1349,9 +1349,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.f_salario = f_salario;
     }
 
-    public static TelaPrincipal getTelaPrincipal() {
-        return telaPrincipalCu;
-        
+    public JPanel getGerenciarPanel() {
+        return gerenciarPanel;
+    }
+
+    public void setGerenciarPanel(JPanel gerenciarPanel) {
+        this.gerenciarPanel = gerenciarPanel;
+    }
+
+    public static TelaPrincipal getTelaprincipalinit() {
+        return telaprincipalinit;
     }
 
     
@@ -1375,6 +1382,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }
     
+    public void limparCampsG() {
+
+        this.g_nome.setText("");
+        this.g_curso.setText("");
+        this.g_fase.setText("");
+        this.g_idade.setText("");
+
+    }
+    
     public void InserirIcone(JFrame frm) {
         try {
             
@@ -1385,7 +1401,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
         
     }
-
+    
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Lista;

@@ -4,8 +4,15 @@
  */
 package view;
 
+import DAO.FuncionarioDAO;
 import controller.ControllerRegistrosFuncionarios;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import model.Funcionario;
 
 /**
  *
@@ -13,14 +20,12 @@ import javax.swing.JTextField;
  */
 public class ConfirmacaoSeguranca extends javax.swing.JFrame {
 
-    private final ControllerRegistrosFuncionarios controller3;
-    TelaPrincipal tela = new TelaPrincipal();
-    private static ConfirmacaoSeguranca confirmacaoseguranca = new ConfirmacaoSeguranca();
-    
+    TelaPrincipal view = TelaPrincipal.getTelaprincipalinit();
+    private final static ConfirmacaoSeguranca confirmacaosegurancainit = new ConfirmacaoSeguranca();
+
     public ConfirmacaoSeguranca() {
         initComponents();
-        controller3 = new ControllerRegistrosFuncionarios(this);
-        
+
     }
 
     /**
@@ -32,21 +37,24 @@ public class ConfirmacaoSeguranca extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
         cupanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        senhaSistema = new javax.swing.JTextField();
         confirmarSenha = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        senha = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(236, 240, 241));
+        setUndecorated(true);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel1.setText("DIGITE A SENHA PARA CADASTRAR");
+        jPanel2.setBackground(new java.awt.Color(236, 240, 241));
+        jPanel2.setForeground(new java.awt.Color(236, 240, 241));
 
-        senhaSistema.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senhaSistemaActionPerformed(evt);
-            }
-        });
+        cupanel.setBackground(new java.awt.Color(44, 62, 80));
+        cupanel.setForeground(new java.awt.Color(44, 62, 80));
 
         confirmarSenha.setText("Confirmar");
         confirmarSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -55,50 +63,100 @@ public class ConfirmacaoSeguranca extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jPanel1.setBackground(new java.awt.Color(255, 145, 77));
+
+        jLabel1.setBackground(new java.awt.Color(236, 240, 241));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(236, 240, 241));
+        jLabel1.setText("DIGITE A SENHA PARA CADASTRAR");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(46, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(49, 49, 49))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(24, 24, 24))
+        );
+
+        jLabel2.setBackground(new java.awt.Color(236, 240, 241));
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(236, 240, 241));
+        jLabel2.setText("Senha:");
+
         javax.swing.GroupLayout cupanelLayout = new javax.swing.GroupLayout(cupanel);
         cupanel.setLayout(cupanelLayout);
         cupanelLayout.setHorizontalGroup(
             cupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cupanelLayout.createSequentialGroup()
-                .addContainerGap(302, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cupanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(cupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cupanelLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(270, 270, 270))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cupanelLayout.createSequentialGroup()
-                        .addComponent(confirmarSenha)
-                        .addGap(215, 215, 215))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cupanelLayout.createSequentialGroup()
-                        .addComponent(senhaSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(308, 308, 308))))
+                    .addComponent(jLabel2)
+                    .addGroup(cupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(cupanelLayout.createSequentialGroup()
+                            .addComponent(jButton1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(confirmarSenha))
+                        .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cupanelLayout.setVerticalGroup(
             cupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cupanelLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1)
-                .addGap(58, 58, 58)
-                .addComponent(senhaSistema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
-                .addComponent(confirmarSenha)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(cupanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(confirmarSenha)
+                    .addComponent(jButton1))
+                .addGap(89, 89, 89))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cupanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cupanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(cupanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(cupanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -106,16 +164,43 @@ public class ConfirmacaoSeguranca extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarSenhaActionPerformed
-  
-        controller3.registrarFuncionario(TelaPrincipal.getTelaPrincipal());    
         
+        try {
+            if (senha.getText().equals("1234")) {
+
+                JOptionPane.showMessageDialog(null, "SENHA CORRETA!");
+                String nome = view.getF_nome().getText();
+                String funcao = view.getF_funcao().getText();
+                int matricula = Integer.parseInt(view.getF_matricula().getText());
+                int salario = Integer.parseInt(view.getF_salario().getText());
+
+                Funcionario funcionario = new Funcionario(nome, funcao, matricula, salario);
+
+                Connection conexao = new FuncionarioDAO().getConexao();
+                FuncionarioDAO funcionariodao = new FuncionarioDAO(conexao);
+                funcionariodao.insertFuncionarioBD(funcionario);
+                JOptionPane.showMessageDialog(null, "FUNCIONÁRIO CADASTRADO COM SUCESSO!");
+                view.limparCamps();
+                this.dispose();
+
+            } else {
+                JOptionPane.showMessageDialog(null, "SENHA INCORRETA!");
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(RegistrarAlunos.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar o usuario" + ex);
+        }
+        
+
     }//GEN-LAST:event_confirmarSenhaActionPerformed
 
-    private void senhaSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaSistemaActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+        this.dispose();
         
-        
-    }//GEN-LAST:event_senhaSistemaActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,28 +232,34 @@ public class ConfirmacaoSeguranca extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                confirmacaoseguranca.setVisible(true);
+                confirmacaosegurancainit.setVisible(true);
             }
         });
     }
 
-    public JTextField getSenhaSistema() {
-        return senhaSistema;
+    public static ConfirmacaoSeguranca getConfirmacaosegurancainit() {
+        return confirmacaosegurancainit;
     }
 
-    public void setSenhaSistema(JTextField senhaSistema) {
-        this.senhaSistema = senhaSistema;
+    public JTextField getSenha() {
+        return senha;
     }
 
-    public static ConfirmacaoSeguranca getConfirmacaoseguranca() {
-        return confirmacaoseguranca;
-    } 
+    public void setSenha(JTextField senha) {
+        this.senha = senha;
+    }
     
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton confirmarSenha;
     private javax.swing.JPanel cupanel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField senhaSistema;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField senha;
     // End of variables declaration//GEN-END:variables
 }
